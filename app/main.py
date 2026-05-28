@@ -1,6 +1,15 @@
 from fastapi import FastAPI
 from app.core.database import supabase
 
+# otp routes
+from app.api.routes.otp import router as otp_router
+
+# insurance routes
+from app.api.routes.insurance import router as insurance_router
+
+# contact routes
+from app.api.routes.contact import router as contact_router
+
 # loan routes
 from app.api.routes.loan import router as loan_router
 
@@ -19,7 +28,61 @@ from app.api.routes.leads import router as leads_router
 # emi routes
 from app.api.routes.emi import router as emi_router
 
+# products routes
+from app.api.routes.products import router as products_router
+
+# mutual fund routes
+from app.api.routes.mutual_fund import router as mutual_fund_router
+
+# sip routes
+from app.api.routes.sip import router as sip_router
+
 app = FastAPI()
+
+# SIP ROUTES
+app.include_router(
+    sip_router,
+    prefix="/api/sip",
+    tags=["SIP Calculator"]
+)
+
+# MUTUAL FUND ROUTES
+app.include_router(
+    mutual_fund_router,
+    prefix="/api/mutual-fund",
+    tags=["Mutual Fund"]
+)
+
+# PRODUCTS ROUTES
+app.include_router(
+    products_router,
+    prefix="/api/products",
+    tags=["Products"]
+)
+
+
+# OTP ROUTES
+app.include_router(
+    otp_router,
+    prefix="/api/auth",
+    tags=["OTP Auth"]
+)
+
+
+# INSURANCE ROUTES
+app.include_router(
+    insurance_router,
+    prefix="/api/insurance",
+    tags=["Insurance"]
+)
+
+
+# CONTACT ROUTES
+app.include_router(
+    contact_router,
+    prefix="/api/contact",
+    tags=["Contact"]
+)
 
 
 # LOAN ROUTES
