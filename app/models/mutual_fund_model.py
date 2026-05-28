@@ -16,5 +16,5 @@ class MutualFundInquiry(BaseModel):
     email: str
     phone: str
     investment_type: MutualFundType
-    monthly_investment: str
+    monthly_investment: float
     message: str

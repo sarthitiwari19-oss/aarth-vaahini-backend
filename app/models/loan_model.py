@@ -22,6 +22,7 @@ class LoanApplication(BaseModel):
     email: str
     phone: str
     loan_type: LoanType
-    amount: str
+    amount: float
     monthly_income: str
     employment_type: str
+    message: str | None = None

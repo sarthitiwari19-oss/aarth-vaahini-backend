@@ -10,16 +10,17 @@ router = APIRouter()
 def apply_loan(data: LoanApplication):
 
     loan_data = {
-        "name": data.name,
-        "email": data.email,
-        "phone": data.phone,
-        "loan_type": data.loan_type,
-        "amount": data.amount,
-        "monthly_income": data.monthly_income,
-        "employment_type": data.employment_type,
-        "status": "new",
-        "source": "loan_apply"
-    }
+    "name": data.name,
+    "email": data.email,
+    "phone": data.phone,
+    "loan_type": data.loan_type,
+    "amount": data.amount,
+    "monthly_income": data.monthly_income,
+    "employment_type": data.employment_type,
+    "status": "new",
+    "source": "loan_apply",
+    "message": data.message
+}
 
     supabase.table("leads").insert(loan_data).execute()
 
